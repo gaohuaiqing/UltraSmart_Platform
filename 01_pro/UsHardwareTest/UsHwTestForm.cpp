@@ -1,6 +1,8 @@
 #include "UsHwTestForm.h"
 #include "ui_UsHwTestForm.h"
 #include <QStandardItem>
+#include <QMap>
+
 
 UsHwTestForm::UsHwTestForm(QWidget *parent) :
     QWidget(parent),
@@ -9,9 +11,6 @@ UsHwTestForm::UsHwTestForm(QWidget *parent) :
     ui->setupUi(this);
 
     UsHwCreateHwTestTree();
-
-    //ui->stackedWidget_Param->setGeometry(261, 0, 500, 513);
-    //ui->stackedWidget_Param->setFrameStyle(QFrame::Panel | QFrame::Raised);
 
     pageAutoPowerTest = new widgetAutoPowerTest();
 

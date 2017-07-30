@@ -173,7 +173,7 @@
   <widget class="QCheckBox" name="checkBox_AutoPowerErrStop">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>50</x>
      <y>140</y>
      <width>71</width>
      <height>16</height>
