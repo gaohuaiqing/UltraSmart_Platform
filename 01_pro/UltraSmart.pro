@@ -27,15 +27,20 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
         UsHardwareTest/UsHwTestForm.cpp \
-        UsHardwareTest/widgetAutoPowerTest.cpp
+        UsHardwareTest/widgetAutoPowerTest.cpp \
+    SwitchButton.cpp
         
 HEADERS += \
         MainWindow.h \
         UsHardwareTest/UsHwTestForm.h \
-        UsHardwareTest/widgetAutoPowerTest.h
+        UsHardwareTest/widgetAutoPowerTest.h \
+    SwitchButton.h
         
 FORMS += \
     MainWindow.ui \
     UsHardwareTest/UsHwTestForm.ui \
     UsHardwareTest/widgetAutoPowerTest.ui
+
+RESOURCES += \
+    customresource.qrc
 

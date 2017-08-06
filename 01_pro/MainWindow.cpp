@@ -1,6 +1,7 @@
 #include "MainWindow.h"
-#include "ui_mainwindow.h"
+#include "UsHardwareTest/widgetAutoPowerTest.h"
 
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,8 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_FormHwTest = new UsHwTestForm(this);
-    setCentralWidget(m_FormHwTest);
+    //m_FormHwTest = new UsHwTestForm(this);
+    widgetAutoPowerTest *widgetAutoPwrTest = new widgetAutoPowerTest(this);
+
+    setCentralWidget(widgetAutoPwrTest);
 }
 
 MainWindow::~MainWindow()

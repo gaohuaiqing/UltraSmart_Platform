@@ -170,7 +170,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_AutoPowerErrStop">
+  <widget class="SwitchButton" name="checkBox_AutoPowerErrStop">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -180,10 +180,17 @@
     </rect>
    </property>
    <property name="text">
-    <string>ErrStop</string>
+    <string/>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SwitchButton</class>
+   <extends>QCheckBox</extends>
+   <header>switchbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
