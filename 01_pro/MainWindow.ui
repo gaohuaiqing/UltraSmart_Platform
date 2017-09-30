@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>850</width>
-    <height>624</height>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,8 +27,16 @@
     <property name="title">
      <string>文件&amp;F</string>
     </property>
+    <addaction name="action_LogToFile"/>
+   </widget>
+   <widget class="QMenu" name="menu_W">
+    <property name="title">
+     <string>窗口&amp;W</string>
+    </property>
+    <addaction name="action_LogWindow"/>
    </widget>
    <addaction name="menu_F"/>
+   <addaction name="menu_W"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -37,22 +45,52 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action"/>
+   <addaction name="action_LogToFile"/>
+   <addaction name="action_LogWindow"/>
+   <addaction name="action_ClearLog"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget">
-   <attribute name="dockWidgetArea">
-    <number>8</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents"/>
-  </widget>
-  <action name="action">
+  <action name="action_LogToFile">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="customresource.qrc">
+     <normaloff>:/image/Icons/LogOutOn.png</normaloff>:/image/Icons/LogOutOn.png</iconset>
+   </property>
    <property name="text">
     <string>保存日志到文件</string>
    </property>
   </action>
+  <action name="action_LogWindow">
+   <property name="icon">
+    <iconset resource="customresource.qrc">
+     <normaloff>:/image/Icons/HideLog.png</normaloff>
+     <normalon>:/image/Icons/ShowLog.png</normalon>:/image/Icons/HideLog.png</iconset>
+   </property>
+   <property name="text">
+    <string>隐藏日志窗口</string>
+   </property>
+   <property name="toolTip">
+    <string>显示（隐藏）日志窗口</string>
+   </property>
+  </action>
+  <action name="action_ClearLog">
+   <property name="icon">
+    <iconset resource="customresource.qrc">
+     <normaloff>:/image/Icons/CleanLog.png</normaloff>:/image/Icons/CleanLog.png</iconset>
+   </property>
+   <property name="text">
+    <string>清空日志窗口</string>
+   </property>
+   <property name="toolTip">
+    <string>清空日志窗口</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="customresource.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/image">
-        <file alias="On">Icons/SwitchOn.png</file>
-        <file alias="Off">Icons/SwitchOff.png</file>
+        <file>Icons/LogOutOn.png</file>
+        <file>Icons/LogOutOff.png</file>
+        <file>Icons/ShowLog.png</file>
+        <file>Icons/HideLog.png</file>
+        <file>Icons/CleanLog.png</file>
     </qresource>
 </RCC>

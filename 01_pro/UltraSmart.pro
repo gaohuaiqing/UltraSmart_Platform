@@ -27,20 +27,33 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
         UsHardwareTest/UsHwTestForm.cpp \
-        UsHardwareTest/widgetAutoPowerTest.cpp \
-    SwitchButton.cpp
+    UsHardwareTest/UsHwCustomWidget.cpp \
+    UsHardwareTest/TestCaseAutoPowerTest.cpp \
+    UsHardwareTest/TestCaseBatteryTest.cpp \
+    UsHardwareTest/TestCaseLpcTest.cpp \
+    UsHardwareTest/TestCasePcieTest.cpp \
+    UltraSmartLog.cpp \
+    UsHardwareTest/UsHwTestcaseThreadObj.cpp \
+    UsHwPowerControl.cpp
         
 HEADERS += \
         MainWindow.h \
         UsHardwareTest/UsHwTestForm.h \
-        UsHardwareTest/widgetAutoPowerTest.h \
-    SwitchButton.h
+    UsHardwareTest/UsHwCustomWidget.h \
+    UsHardwareTest/TestCaseAutoPowerTest.h \
+    UsHardwareTest/TestCaseBatteryTest.h \
+    UsHardwareTest/TestCaseLpcTest.h \
+    UsHardwareTest/TestCasePcieTest.h \
+    UltraSmartLog.h \
+    UsHardwareTest/UsHwTestcaseThreadObj.h \
+    UsHwPowerControl.h
         
 FORMS += \
     MainWindow.ui \
-    UsHardwareTest/UsHwTestForm.ui \
-    UsHardwareTest/widgetAutoPowerTest.ui
+    UsHardwareTest/UsHwTestForm.ui
 
 RESOURCES += \
     customresource.qrc
 
+
+unix|win32: LIBS += -lpowrprof
