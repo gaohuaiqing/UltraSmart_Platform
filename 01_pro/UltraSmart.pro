@@ -34,7 +34,21 @@ SOURCES += \
     UsHardwareTest/TestCasePcieTest.cpp \
     UltraSmartLog.cpp \
     UsHardwareTest/UsHwTestcaseThreadObj.cpp \
-    UsHwPowerControl.cpp
+    UsHwPowerControl.cpp \
+    UsHardwareTest/TestCaseUsbTest.cpp \
+    UsHardwareTest/TestCaseAutoSleepWakeTest.cpp \
+    UsHardwareTest/TestCaseHDDTest.cpp \
+    UsHardwareTest/TestCaseSSDTest.cpp \
+    UsHardwareTest/TestCaseSmBusTest.cpp \
+    UsHardwareTest/TestCaseDisplayTest.cpp \
+    UsHardwareTest/TestCaseDDCTest.cpp \
+    UsHardwareTest/TestCaseCDRomDetect.cpp \
+    UsHardwareTest/TestCaseWiFiDetect.cpp \
+    UsHardwareTest/TestCaseGpuDetect.cpp \
+    UsHardwareTest/TestCaseFpgaDdrInitTest.cpp \
+    UsHardwareTest/TestCaseFpgaDdrRwTest.cpp \
+    UsHardwareTest/TestCasePhvComTest.cpp \
+    UsHardwareTest/TestCaseProbeIdTest.cpp
         
 HEADERS += \
         MainWindow.h \
@@ -46,7 +60,21 @@ HEADERS += \
     UsHardwareTest/TestCasePcieTest.h \
     UltraSmartLog.h \
     UsHardwareTest/UsHwTestcaseThreadObj.h \
-    UsHwPowerControl.h
+    UsHwPowerControl.h \
+    UsHardwareTest/TestCaseUsbTest.h \
+    UsHardwareTest/TestCaseAutoSleepWakeTest.h \
+    UsHardwareTest/TestCaseHDDTest.h \
+    UsHardwareTest/TestCaseSSDTest.h \
+    UsHardwareTest/TestCaseSmBusTest.h \
+    UsHardwareTest/TestCaseDisplayTest.h \
+    UsHardwareTest/TestCaseDDCTest.h \
+    UsHardwareTest/TestCaseCDRomDetect.h \
+    UsHardwareTest/TestCaseWiFiDetect.h \
+    UsHardwareTest/TestCaseGpuDetect.h \
+    UsHardwareTest/TestCaseFpgaDdrInitTest.h \
+    UsHardwareTest/TestCaseFpgaDdrRwTest.h \
+    UsHardwareTest/TestCasePhvComTest.h \
+    UsHardwareTest/TestCaseProbeIdTest.h
         
 FORMS += \
     MainWindow.ui \

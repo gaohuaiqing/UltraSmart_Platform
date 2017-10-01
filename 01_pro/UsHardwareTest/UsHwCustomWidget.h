@@ -20,7 +20,9 @@ typedef enum tagCtrlType
 {
     UH_LABEL = 0,
     UH_EDIT,
-    UH_CHECKBOX
+    UH_CHECKBOX,
+    UH_BUTTON,
+    UH_DLG_BUTTON
 }UH_CTRL_TYPE_E;
 
 typedef struct tagTestCasePageCtrl
@@ -39,6 +41,7 @@ class CUsHwCustomWidget : public QWidget
     Q_OBJECT
 
 public slots:
+    virtual void CreateUi();
     virtual uint UsHwInitParams(const char *pcCfgFilePath, bool &bChecked);
     virtual uint UsHwSaveParams(const char *pcCfgFilePath, bool bChecked);
     virtual uint UsHwStartTest();
@@ -50,6 +53,7 @@ public:
     //  定义写到参数配置文件中的section字段名称
     QString         m_strParamSection;
 
+    virtual void UsHwCreateUi(UH_TEST_CASE_PAGE_CTRL_S *pstTestcasePageCtrls, uint uiCtrlNum);
 };
 
 static  const char   *g_pcHKLMRunSection = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";

@@ -1,18 +1,24 @@
-#ifndef TEST_CASE_PCIE_TEST_H
-#define TEST_CASE_PCIE_TEST_H
+#ifndef TEST_CASE_USB_TEST_H
+#define TEST_CASE_USB_TEST_H
 
 #include "UsHwCustomWidget.h"
 
-class TestCasePciePress : public CUsHwCustomWidget
+class TestCaseUsbPress : public CUsHwCustomWidget
 {
     Q_OBJECT
 
 public:
-    explicit TestCasePciePress();
-    ~TestCasePciePress();
+    explicit TestCaseUsbPress();
+    ~TestCaseUsbPress();
 
     void CreateUi();
     uint UsHwStartTest();
+
+public slots:
+    void UsHwBrowsePath();
+
+private:
+    QMap<QPushButton*, QLineEdit*>      m_mapBrowsePath;
 };
 
-#endif // TEST_CASE_PCIE_TEST_H
+#endif // TEST_CASE_USB_TEST_H

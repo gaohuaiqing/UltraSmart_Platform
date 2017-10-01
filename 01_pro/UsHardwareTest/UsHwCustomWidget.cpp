@@ -1,6 +1,11 @@
 
 #include "UsHwCustomWidget.h"
 
+void CUsHwCustomWidget::CreateUi()
+{
+
+}
+
 uint CUsHwCustomWidget::UsHwInitParams(const char *pcCfgFilePath, bool &bChecked)
 {
     // 从配置文件加载配置，并设置页面的控件值
@@ -121,4 +126,69 @@ uint CUsHwCustomWidget::UsHwSaveParams(const char *pcCfgFilePath, bool bChecked)
 uint CUsHwCustomWidget::UsHwStartTest()
 {
     return 0;
+}
+
+void CUsHwCustomWidget::UsHwCreateUi(UH_TEST_CASE_PAGE_CTRL_S *pstTestcasePageCtrls, uint uiCtrlNum)
+{
+    UH_CTRL_TYPE_E      enCtrlType;
+    uint        uiIndex = 0;
+    QWidget     *pWidgetTemp = NULL;
+    QString     strCtrlCaption = "";
+
+    // 新建栅格布局管理器
+    QGridLayout *pGrdLytParams = new QGridLayout(this);
+    pGrdLytParams->setHorizontalSpacing(3);
+    pGrdLytParams->setAlignment(Qt::AlignTop);
+
+    for (uiIndex = 0; uiIndex < uiCtrlNum; uiIndex++)
+    {
+        enCtrlType = pstTestcasePageCtrls[uiIndex].enCtrlType;
+        strCtrlCaption = pstTestcasePageCtrls[uiIndex].strCaption;
+        switch (enCtrlType)
+        {
+            case UH_LABEL:
+                pWidgetTemp = (QWidget*)(new QLabel(strCtrlCaption, this));
+                break;
+
+            case UH_EDIT:
+                pWidgetTemp = (QWidget*)(new QLineEdit(this));
+                break;
+
+            case UH_CHECKBOX:
+                pWidgetTemp = (QWidget*)(new QCheckBox(strCtrlCaption, this));
+                break;
+
+            case UH_BUTTON:
+            case UH_DLG_BUTTON:
+                pWidgetTemp = (QWidget*)(new QPushButton(strCtrlCaption, this));
+                break;
+
+            default:
+                return;
+        }
+
+        // 用来选择路径的按钮要特殊处理
+        if (UH_DLG_BUTTON == enCtrlType)
+        {
+            ((QPushButton*)pWidgetTemp)->setText("...");
+            pWidgetTemp->setMaximumWidth(30);
+        }
+
+        pstTestcasePageCtrls[uiIndex].pwgtCtrl = pWidgetTemp;
+
+        pGrdLytParams->addWidget(
+                                  pWidgetTemp,
+                                  pstTestcasePageCtrls[uiIndex].iRow,
+                                  pstTestcasePageCtrls[uiIndex].iColumn,
+                                  pstTestcasePageCtrls[uiIndex].iRowSpan,
+                                  pstTestcasePageCtrls[uiIndex].iColumnSpan
+                                );
+
+        if (UH_LABEL != enCtrlType)
+        {
+            m_mapCtrl.insert(strCtrlCaption, pWidgetTemp);
+        }
+
+        m_vectorTestcasePageCtrls.append(pstTestcasePageCtrls[uiIndex]);
+    }
 }

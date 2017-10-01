@@ -1,25 +1,25 @@
-#include "TestCasePcieTest.h"
+#include "TestCasePhvComTest.h"
 
-TestCasePciePress::TestCasePciePress()
+TestCasePhvComPress::TestCasePhvComPress()
 {
     CreateUi();
 }
 
-TestCasePciePress::~TestCasePciePress()
+TestCasePhvComPress::~TestCasePhvComPress()
 {
 
 }
 
-void TestCasePciePress::CreateUi()
+void TestCasePhvComPress::CreateUi()
 {
     //  定义写到参数配置文件中的section字段名称
-    m_strParamSection = "PCIeTest";
+    m_strParamSection = "PHVComTest";
 
     UH_TEST_CASE_PAGE_CTRL_S    astTestcasePageCtrls[] =
     {
-        {"DspFpgaVer",    NULL,  UH_LABEL,   0, 0, 1, 1},
-        {"0x",            NULL,  UH_LABEL,   0, 1, 1, 1},
-        {"DspFpgaVer", 	  NULL,  UH_EDIT,    0, 2, 1, 1},
+        {"ExpectedPhvFwVersion",    NULL,  UH_LABEL,   0, 0, 1, 1},
+        {"0x",            			NULL,  UH_LABEL,   0, 1, 1, 1},
+        {"ExpectedPhvFwVersion", 	NULL,  UH_EDIT,    0, 2, 1, 1},
 
 		
         {"TestCount",     NULL,  UH_CHECKBOX,1, 0, 1, 1},
@@ -36,7 +36,7 @@ void TestCasePciePress::CreateUi()
     UsHwCreateUi(astTestcasePageCtrls, uiNum);
 }
 
-uint TestCasePciePress::UsHwStartTest()
+uint TestCasePhvComPress::UsHwStartTest()
 {
     Logout("Current Testcase is %s ", m_strParamSection.toStdString().data());
 

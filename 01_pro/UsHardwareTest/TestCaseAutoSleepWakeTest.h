@@ -1,9 +1,9 @@
 #ifndef TEST_CASE_AUTO_SLEEP_WAKE_TEST_H
 #define TEST_CASE_AUTO_SLEEP_WAKE_TEST_H
 
-#include "TestCaseAutoSleepWake.h"
+#include "UsHwCustomWidget.h"
 
-class TestCaseAutoSleepWake : public TestCaseAutoSleepWake
+class TestCaseAutoSleepWake : public CUsHwCustomWidget
 {
     Q_OBJECT
 

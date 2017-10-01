@@ -1,19 +1,19 @@
-#include "TestCaseLpcTest.h"
+#include "TestCaseSmBusTest.h"
 
-TestCaseLpcPress::TestCaseLpcPress()
+TestCaseSmBusPress::TestCaseSmBusPress()
 {
     CreateUi();
 }
 
-TestCaseLpcPress::~TestCaseLpcPress()
+TestCaseSmBusPress::~TestCaseSmBusPress()
 {
 
 }
 
-void TestCaseLpcPress::CreateUi()
+void TestCaseSmBusPress::CreateUi()
 {
     //  定义写到参数配置文件中的section字段名称
-    m_strParamSection = "LpcTest";
+    m_strParamSection = "SmBusTest";
 
     UH_TEST_CASE_PAGE_CTRL_S    astTestcasePageCtrls[] =
     {
@@ -31,7 +31,7 @@ void TestCaseLpcPress::CreateUi()
     UsHwCreateUi(astTestcasePageCtrls, uiNum);
 }
 
-uint TestCaseLpcPress::UsHwStartTest()
+uint TestCaseSmBusPress::UsHwStartTest()
 {
     Logout("Current Testcase is %s ", m_strParamSection.toStdString().data());
 

@@ -9,10 +9,23 @@
 #include "UsHwPowerControl.h"
 #include "UltraSmartLog.h"
 #include "TestCaseAutoPowerTest.h"
+#include "TestCaseAutoSleepWakeTest.h"
 #include "TestCaseBatteryTest.h"
 #include "TestCasePcieTest.h"
 #include "TestCaseLpcTest.h"
-
+#include "TestCaseUsbTest.h"
+#include "TestCaseSSDTest.h"
+#include "TestCaseHDDTest.h"
+#include "TestCaseSmBusTest.h"
+#include "TestCaseDisplayTest.h"
+#include "TestCaseDDCTest.h"
+#include "TestCaseCDRomDetect.h"
+#include "TestCaseWiFiDetect.h"
+#include "TestCaseGpuDetect.h"
+#include "TestCaseFpgaDdrInitTest.h"
+#include "TestCaseFpgaDdrRwTest.h"
+#include "TestCasePhvComTest.h"
+#include "TestCaseProbeIdTest.h"
 
 static  const char   *g_pcParamsCfgFileDefaultPath = ".\\DefaultTestCfg.ini";
 static  const char   *g_pcGlobalParamSection = "GlobalParams";
@@ -73,12 +86,27 @@ void UsHwTestForm::UsHwCreateHwTestTree()
 {
     UH_TEST_CASE_S   g_astTestCase[] =
     {
-        {"Power",           NULL, NULL, NULL, NULL},
-        {"AutoPowerTest",   &g_astTestCase[0].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseAutoPower()},
-        {"BatteryI2cTest",  &g_astTestCase[0].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseBatteryI2C()},
-        {"BackEnd",         NULL, NULL, NULL, NULL},
-        {"PciePressTest",   &g_astTestCase[3].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCasePciePress()},
-        {"LpcPressTest",    &g_astTestCase[3].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseLpcPress()}
+        {"Power",               NULL, NULL, NULL, NULL},
+        {"AutoPowerTest",       &g_astTestCase[0].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseAutoPower()},
+        {"AutoSleepWakeTest",   &g_astTestCase[0].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseAutoSleepWake()},
+        {"BatteryI2cTest",      &g_astTestCase[0].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseBatteryI2C()},
+        {"BackEnd",             NULL, NULL, NULL, NULL},        // array[4]
+        {"PciePressTest",       &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCasePciePress()},
+        {"LpcPressTest",        &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseLpcPress()},
+        {"UsbPressTest",        &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseUsbPress()},
+        {"SSDPressTest",        &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseSSDPress()},
+        {"SataPressTest",       &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseHDDPress()},
+        {"SmBusPressTest",      &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseSmBusPress()},
+        {"DisplayTest",         &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseDisplayTest()},
+        {"DDCPressTest",        &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseDDCPress()},
+        {"CDRomDetect",         &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseCDRomDetect()},
+        {"WiFiDetect",          &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseWiFiDetect()},
+        {"GpuDetect",           &g_astTestCase[4].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseGpuDetect()},
+        {"FrontEnd",            NULL, NULL, NULL, NULL},        // array[16]
+        {"FpgaDdrInit",         &g_astTestCase[16].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseFpgaDdrInitPress()},
+        {"FpgaDdrRw",           &g_astTestCase[16].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseFpgaDdrRw()},
+        {"PhvComPress",         &g_astTestCase[16].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCasePhvComPress()},
+        {"ProbeIdPress",        &g_astTestCase[16].pitemTestCase, NULL, NULL, (CUsHwCustomWidget*)new TestCaseProbeIdPress()}
     };
 
     QStandardItemModel  *model = new QStandardItemModel(ui->treeView_HwTestItems);
@@ -123,7 +151,7 @@ void UsHwTestForm::UsHwCreateHwTestTree()
     }
 
     m_pStackedWgtParams->setCurrentIndex(0);
-    ui->gridLayout->addWidget(m_pStackedWgtParams, 0, 0);
+    ui->gridLayout->addWidget(m_pStackedWgtParams, 0, 0, Qt::AlignTop);
 
     ui->treeView_HwTestItems->setModel(model);
     ui->treeView_HwTestItems->expandAll();
